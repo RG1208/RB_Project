@@ -22,11 +22,6 @@ const routes = [
     href: "/admin/users",
   },
   {
-    label: "Notifications",
-    icon: Bell,
-    href: "/admin/notifications",
-  },
-  {
     label: "Settings",
     icon: Settings,
     href: "/admin/settings",
