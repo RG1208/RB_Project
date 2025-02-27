@@ -44,11 +44,9 @@ export default function LoginPage() {
         throw new Error(data.error || "An error occurred")
       }
 
-      if (data.user.role === "admin") {
+     
         router.push("/admin")
-      } else {
-        router.push("/dashboard")
-      }
+      
     } catch (err: any) {
       setError(err.message)
     } finally {
