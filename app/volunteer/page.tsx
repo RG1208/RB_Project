@@ -134,43 +134,6 @@ export default function VolunteerPage() {
 
               <FormField
                 control={form.control}
-                name="availability"
-                render={() => (
-                  <FormItem>
-                    <FormLabel>Availability</FormLabel>
-                    <div className="grid grid-cols-2 gap-4">
-                      {availabilityOptions.map((option) => (
-                        <FormField
-                          key={option.id}
-                          control={form.control}
-                          name="availability"
-                          render={({ field }) => {
-                            return (
-                              <FormItem key={option.id} className="flex flex-row items-start space-x-3 space-y-0">
-                                <FormControl>
-                                  <Checkbox
-                                    checked={field.value?.includes(option.id)}
-                                    onCheckedChange={(checked) => {
-                                      return checked
-                                        ? field.onChange([...field.value, option.id])
-                                        : field.onChange(field.value?.filter((value) => value !== option.id))
-                                    }}
-                                  />
-                                </FormControl>
-                                <FormLabel className="font-normal">{option.label}</FormLabel>
-                              </FormItem>
-                            )
-                          }}
-                        />
-                      ))}
-                    </div>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
                 name="location"
                 render={({ field }) => (
                   <FormItem>
