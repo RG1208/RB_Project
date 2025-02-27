@@ -43,20 +43,19 @@ function Report() {
       setLoading(false)
     }
   }, [])
+
   function onSubmit(values: any) {
     if (!location) {
       alert("Location not detected. Please enable location services.")
       return
     }
     
+    // Declare submitData only once
     const submitData = {
       ...values,
       location,
     }
-    const submitData = {
-      ...values,
-      location,
-    }
+    
     console.log(submitData)
     alert("Emergency reported successfully!")
   }
