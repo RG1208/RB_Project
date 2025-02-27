@@ -140,7 +140,7 @@ export default function ReportPage() {
 
   function onSubmit(values) {
     if (location.lat === 0 && location.lng === 0) {
-      alert("Location not detected. Please enable location services or select a valid location on the map.")
+      alert("Location not detected. Please enable location services.")
       return
     }
 

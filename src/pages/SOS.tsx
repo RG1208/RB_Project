@@ -7,7 +7,7 @@ import { Mic, MicOff, Loader2 } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 
-export function SOS() {
+export default function SOS() {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -70,10 +70,16 @@ export function SOS() {
     }
   }
 
-  const handleSubmit = async () => {
+const handleSubmit = async () => {
+    if (!location) {
+        alert("Please allow access to your location before submitting.")
+        return
+    }
     console.log("Submitting emergency with location:", location)
-    alert("Emergency reported successfully!")
-  }
+    alert("Location not detected. Please enable location services.!")
+}
+
+
 
   if (loading) {
     return (
@@ -140,7 +146,7 @@ export function SOS() {
             </Button>
           </div>
 
-          <Button onClick={handleSubmit} className="w-full bg-destructive hover:bg-destructive/90" size="lg">
+          <Button onClick={handleSubmit} className="w-full bg-destructive hover:bg-destructive/90" size="lg" disabled={!location}>
             Send SOS
           </Button>
         </CardContent>
@@ -148,4 +154,3 @@ export function SOS() {
     </div>
   )
 }
-

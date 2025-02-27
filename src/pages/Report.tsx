@@ -10,11 +10,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { useForm } from "react-hook-form"
 import { Loader2 } from "lucide-react"
 
-export function Report() {
+function Report() {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const form = useForm()
+
+  const form = useForm({
+    defaultValues: {
+      type: "",
+      description: "",
+      contact: "",
+    },
+  })
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -26,18 +33,26 @@ export function Report() {
           })
           setLoading(false)
         },
-        (error) => {
+        () => {
           setError("Unable to get your location. Please enable location services.")
           setLoading(false)
-        },
+        }
       )
     } else {
       setError("Geolocation is not supported by your browser.")
       setLoading(false)
     }
   }, [])
-
   function onSubmit(values: any) {
+    if (!location) {
+      alert("Location not detected. Please enable location services.")
+      return
+    }
+    
+    const submitData = {
+      ...values,
+      location,
+    }
     const submitData = {
       ...values,
       location,
@@ -73,7 +88,7 @@ export function Report() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Emergency Type</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select onValueChange={field.onChange} value={field.value}>
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="Select emergency type" />
@@ -146,3 +161,4 @@ export function Report() {
   )
 }
 
+export default Report
