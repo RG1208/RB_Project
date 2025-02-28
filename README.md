@@ -1,5 +1,5 @@
 # Link for Website: 
-resq-bridge.vercel.app
+(https://resq-bridge.vercel.app/)
 
 # ResQ Bridge
 
@@ -64,15 +64,5 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 - `POST /api/emergency/report` - Submit an SOS report
 - `GET /api/emergency/:id` - Get details of an emergency report
 
-## Contributing
 
-We welcome contributions! Please fork the repo and create a pull request with your changes.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-For any issues or feature requests, please open an [issue](https://github.com/yourusername/resq-bridge/issues).
 
