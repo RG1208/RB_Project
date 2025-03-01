@@ -16,7 +16,3 @@ ResQ Bridge is an emergency response web application designed to connect people 
 
 - **Frontend**: Next.js, Tailwind CSS
 - **Backend**: Express.js, MongoDB
-- **Real-time Communication**: WebSockets
-- **Location Services**: HTML5 Geolocation API
-- **Audio Capture**: MediaRecorder API
-
